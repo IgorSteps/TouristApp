@@ -1,0 +1,568 @@
+body
+{
+	font-family: "Atkinson Hyperlegible", Arial, Helvetica, sans-serif; /*TODO: this font only exists on arun's computer. it needs to be imported if we're using it */
+	font-size: 15.5px;
+	line-height: 1.5;
+	background-color: #f0f0f0;
+	height: 100%;
+	min-height: 100%;
+	color: #5c5c5c;
+	margin: 0;
+}
+
+main
+{
+    width: 56%;
+    margin: auto;
+}
+
+footer
+{
+	color: #35424a;
+	clear: both;
+    margin: auto;
+	bottom: 0;
+	height: 50px;
+	text-align: center;
+}
+
+mark
+{
+	background: #361999;
+	color: white;
+}
+
+#container
+{
+	display: grid;
+	position: relative;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	overflow: visible;
+	align-content: center;
+	min-height: 12vh;
+}
+
+/*Header*/
+header {
+	/**background: #b3cbda;**/
+	color: rgb(185, 40, 0);
+	/**border-bottom: #FEB700 3px solid;**/
+}
+
+header .highlight, header .current a {
+    color: #5c5c5c;
+    font-weight: bold;
+}
+
+/*nav*/
+header a
+{
+	color: white;
+}
+header a:hover
+{
+	color: #81BD00;
+}
+/*logo*/
+.user-nav
+{
+	float: right;
+	margin: 10px 45px 5px 0;
+}
+
+/*nav*/
+.nav-text
+{
+	background-color: #5c5c5c;
+	z-index: 1;
+	float: left;
+	width: 100%;
+	position: sticky;
+	top: 0;
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+	margin-bottom: 5px;
+	box-shadow: 1px 1px 1px black;
+}
+.nav-text nav a, .user-nav
+{
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+.nav-text nav a:hover
+{
+	color: #00abe1;
+}
+
+.nav-text nav ul
+{
+	padding: 0;
+	margin: 0;
+}
+
+.nav-text nav li,.nav-text nav
+{
+	float: left;
+	display: block;
+	padding: 0px 45px 5px 0;
+	font-weight: bold;
+}
+
+.nav-text nav
+{
+	margin: 10px 10% 0 10%;
+	float: left;
+}
+
+.center
+{
+	display: flex;
+	margin: auto;
+	max-width: fit-content;
+}
+
+/*Main in Page*/
+
+h2
+{
+	color: #000000;
+	margin: 0px 0 5px 0;
+	border-bottom: #bdbdbd 6px solid;
+}
+
+h3
+{
+	color: #353535;
+	margin: 0px 0 5px 0;
+}
+
+h4
+{
+	font-size: medium;
+	padding: 2px;
+	line-height: 1px;
+}
+h5
+{
+	font-size: small;
+	padding: 2px;
+	line-height: 1px;
+	height: 4px;
+}
+h6
+{
+	font-size: x-small;
+	padding: 2px;
+	line-height: 1px;
+	height: 3px;
+}
+
+
+p
+{
+	color: #5c5c5c;
+	margin: 0;
+	padding-bottom: 25px;
+}
+
+q
+{
+	background-color: #262f35;
+	color: white;
+}
+
+a
+{
+	color: #00abe1;
+	/*rgb(156, 151, 151);*/
+}
+
+form
+{
+	margin: 5px auto 5px auto;
+	width: max-content;
+	border: #000000 3px solid;
+	border-radius: 5px;
+	background-color: rgb(255, 255, 255);
+	padding: 5em;
+	text-align: center;
+}
+input
+{
+	margin: 5px;
+	padding: 5px;
+	color: #262f35;
+	border: rgb(185, 40, 0) 3px solid;
+	border-radius: 5px;
+	background-color: white;
+}
+
+
+button,.button,#next-button,#submit-button
+{
+	background-color: #5c5c5c;
+	border-radius: 50vh;
+	cursor: pointer;
+	width: min-content;
+	padding: 5px 30px 5px 30px;
+	margin: 5px;
+	margin-top: 5px;
+	display: inline-block;
+	color:#ffffff;
+	font-weight: bold;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+button:hover
+{
+	color:#00abe1;
+}
+
+.split
+{
+	margin: 15px 10px 15px 10px;
+	border: #00abe1 2.5px solid;
+}
+
+main ul, ol
+{
+    background: #3E73DE;
+    border: #00abe1 4px solid;
+	border-radius: 10px;
+    color: white;
+    width: max-content;
+    margin: auto;
+	padding: 4px 2px 2px 20px;
+}
+
+mark
+{
+	background-color: #111b747c;
+	border-radius: 3px;
+	padding: 2px;
+}
+.submit-button
+{
+	padding: auto;
+	background-color: transparent;
+	border: none;
+	background-image: url("https://ueacs.co.uk/media/arrow.png");
+	background-size: contain;
+	background-repeat: round;
+	width: 30px;
+}
+
+.table-area
+{
+	display: table;
+	table-layout: 10%;
+	width: 100%;
+}
+
+#logo-left
+{
+	display: table-cell;
+	float: left;
+}
+#logo-left img, #logo-right img
+{
+	width: 10vw;
+}
+#logo-right
+{
+	display: table-cell;
+	float: right;
+}
+#center-text
+{
+	text-align: center;
+}
+.vertical-nav
+{
+}
+.vertical-nav ul
+{
+	padding: 0;
+	margin: 0 auto auto auto;
+	display: block;
+	background: none;
+	border: #00abe1 solid;
+	
+}
+.vertical-nav li
+{
+	float: none;
+	display: block;
+	text-align: center;
+}
+.vertical-nav a,.horizontal-nav a
+{
+	color: white;
+	display: block;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+}
+.vertical-nav a:hover,.horizontal-nav a:hover
+{
+	color: #00abe1;
+	cursor: pointer;
+}
+
+.horizontal-nav
+{
+	width: 100%;
+	padding: 5px 0;
+}
+.horizontal-nav ul
+{
+	width: 100%;
+	display: block;
+	background-color: rgb(15, 106, 167);
+	border: none;
+	border-radius: 0;
+	margin: 0;
+	padding: 5px;
+	border: 3px rgb(15, 106, 167) solid;
+	box-shadow: 1px 1px 1px black;
+}
+.horizontal-nav li
+{
+	display: inline;
+	margin: 10px;
+}
+.horizontal-nav a
+{
+	display: inline;
+}
+
+/** Table **/
+table
+{
+	width: 50%;
+	background-color: #b3cbda;
+	border-radius: 5px;
+	border-collapse: collapse;
+}
+
+tr
+{
+	text-align: left;
+	height: 30px;
+}
+tr:nth-child(2n)
+{
+	background-color: #b3bdda;
+}
+
+thead
+{
+	color: white;
+	background-color: rgb(15, 106, 167);
+}
+
+/** Mobile Devices **/
+@media only screen and (max-width:768px)
+{
+	.nav-text
+	{
+		z-index: 1;
+		float: left;
+		left: 4cm;
+		width: 100%;
+		position: sticky;
+		top: 0;
+		display: grid;
+	}
+	.nav-text nav
+	{
+		margin: 10px 10% 0 10%;
+		float: left;
+	}
+	.nav-text nav ul
+	{
+		padding: 0;
+		margin: 0;
+	}
+	.nav-text nav a
+	{
+		color: white;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 16px;
+	}
+	.nav-text nav a:hover
+	{
+		color: #00abe1;
+	}
+	.nav-text nav li,.nav-text nav
+	{
+		float: left;
+		display: inline;
+		padding: 0px 45px 15px 0;
+		font-weight: bold;
+	}
+	
+	
+	/** Mobile Devices **/
+	@media only all and (max-width:768px)
+	{
+		body
+		{
+			padding: 10px;
+			display: block;
+		}
+		main
+		{
+			display: block;
+			width: 100%;
+			border: none;
+			padding: 0;
+			margin-top: 69px;
+	
+		}
+		footer
+		{
+			position: relative;
+			padding-top: .05cm;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			color: white;
+			font-size: 12px;
+			text-align: center;
+		}
+		p
+		{
+			
+			text-align: left;
+			padding-top: 10px;
+		}
+		#container
+		{
+			margin-left: 2%;
+			margin-right: 2%;
+			width: 100%;
+		}
+		header .nav-text
+		{
+			position: sticky;
+			display: inline-block;
+			width: 90px;
+			float: right;
+			margin-right: 8.5%;
+		}
+	
+		.nav-text h1 {
+			float: right;
+			padding-right: 2.5vw;
+		}
+	
+		.nav-text nav
+		{
+			margin: auto;
+			width: 100%;
+		}
+		.nav-text nav ul
+		{
+			padding: 0;
+			margin: auto;
+			text-align: center;
+		}
+		.nav-text nav li
+		{
+			padding: 0px 8px 0px 8px;
+			display: inline-block;
+			float: none;
+			border-radius: 5px;
+			margin: 3px;
+		}
+		#logo img
+		{
+		position: static; 
+		left: 750;
+		top: 15;
+		height: 90px;
+		}
+		header label
+		{
+			float: right;
+		}
+		div .nav-text
+		{
+			font-size: 0.4cm;
+		}
+		#info-card{
+		margin:auto;
+		border-radius: 0.5cm;
+		padding: 5px;
+		margin-top: 105px;
+		min-height: auto;
+		display: block;
+		}
+	}
+	
+	/*For smaller mobile displays*/
+	@media only all and (max-width:250px)
+	{
+		p, main li{
+			font-size: 5.5vw;
+		}
+	
+		h1{
+			/*display :none;*/
+			font-size: 12vw;
+		}
+	
+		h2{
+			font-size: 8.5vw;
+		}
+	
+		#logo img
+		{
+		height: 70px;
+		}
+	
+		main{
+			margin-top: 73px;
+		}
+	
+	
+	
+	}
+	}
+}
+
+/*For smaller mobile displays*/
+@media only all and (max-width:250px)
+{
+	p, main li{
+		font-size: 5.5vw;
+	}
+
+	h1{
+		/*display :none;*/
+		font-size: 12vw;
+	}
+
+	h2{
+		font-size: 8.5vw;
+	}
+
+	#logo img
+	{
+	height: 70px;
+	}
+
+	main{
+		margin-top: 73px;
+	}
+
+
+
+}
