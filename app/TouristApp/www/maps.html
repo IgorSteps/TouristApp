@@ -139,16 +139,17 @@
         for (const city in redZones) {
           var circle = ({
             center: redZones[city].center,
-            radius: Math.sqrt(redZones[city].population) * 100,
+            radius: Math.sqrt(redZones[city].population) *100,
           })
+          var difference = google.maps.geometry.spherical.computeDistanceBetween(currentPosition , circle.center);
           var test = ((currentPosition.lat - circle.center.lat) ^ 2) + ((currentPosition.lng - circle.center.lng) ^ 2)
-          if (test == circle.radius) {
+          if (difference == circle.radius) {
             run = 1;
             alert("WARNING: You are bordering " + city);
             document.getElementById("message").innerHTML = "WARNING: You are bordering " + city;
             console.log("Border Warning");
           }
-          if (isInside(circle.center.lat,circle.center.lng,circle.radius,currentPosition.lat,currentPosition.lng)) {
+          if (difference < circle.radius) {
             run = 1;
             alert("WARNING: You have entered " + city + ", Leave the area immediately");
             document.getElementById("message").innerHTML = "WARNING: You have entered " + city + '<br>' + "Leave the area immediately";
@@ -156,15 +157,7 @@
           }
         }
       }
-
-      function isInside(circle_x, circle_y, rad, x, y) {
-
-        if ((x - circle_x) * (x - circle_x) +
-          (y - circle_y) * (y - circle_y) <= rad * rad)
-          return true;
-        else
-          return false;
-      }
+      
       shouldIBeHere();
       infoWindow = new google.maps.InfoWindow();
       const locationButton = document.createElement("button");
@@ -210,9 +203,11 @@
 
   </script>
 
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-92p0UimIABQajoO6KH66IAceXE6WL2s&callback=initMap"></script>
-
+  <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-92p0UimIABQajoO6KH66IAceXE6WL2s&callback=initMap"></script> -->
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-92p0UimIABQajoO6KH66IAceXE6WL2s&libraries=geometry&callback=initMap">
+</script>
 </body>
 
 </html>
