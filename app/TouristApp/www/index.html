@@ -1,41 +1,218 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Jail - Home Page</title>
-      <link rel="stylesheet" type="text/css" href="/css/test.css">
-      <link rel="icon" type="image/x-icon" href="/favicon.ico">
-   </head>
 
-   <body>
-      <header>
-      </header>
+<head>
+  <link rel="stylesheet" href="./style.css">
+</head>
 
-      <div class="nav-text">
-         <nav>
-            <ul>
-               <li><a href="/">Home</a></li>
-            </ul>
-         </nav>
-         <a href="/maps.html" class="user-nav">Maps</a>
-         <a href="/news.html" class="user-nav">News</a>
-         <a href="/emergency.html" class="user-nav">Emergency Call</a>
+<body>
+
+  <header>
+    <b>Tourist App
+
+      <a style="color: red; padding-right: 10%;" href="tel:112">Emergency Call</a>
+      <a href="about.html">About</a>
+      <a href="map.html">Map</a>
+    </b>
+  </header>
+
+  <div id=mapZone>
+    <div id="map"></div>
+
+    <div id="key"><b style="text-align: center;">KEY:</b>
+      <div>
+        <div id="circle" style="background: red;"></div>Indigenous Community
+      </div><br>
+      <!-- <div>
+        <div id="circle" style="background: orange;"></div>Tea<br>
+      </div><br><br>
+      <div>
+        <div id="circle" style="background: green;"></div>Milk
+      </div> -->
+    </div>
+    <article>
+      <div> <b>Areas description:</b><br><br>
+        Lorem Ipsum is simply dummy text of
+        the printing and typesetting industry.
+        Lorem Ipsum has been the industry's
+        standard dummy text ever since the
+        1500s, when an unknown printer took
+        a galley of type and scrambled it to
+        make a type specimen book. It has
+        survived not only five centuries, but
+        also the leap into electronic
+        typesetting, remaining essentially
+        unchanged. It was popularised in the
+        1960s with the release of Letraset
+        sheets containing Lorem Ipsum
+        passages, and more recently with
+        desktop publishing software like Aldus
+        PageMaker including versions of
+        Lorem Ipsum.
       </div>
-      
-      <main>
-         <div>
-            <h2>Blank</h2>
-               <p class="center">
-                  You currently have nothing
-               </p>
-               <button class="center">This is a button</button>
-         </div>
-      </main>
+    </article>
+  </div>
 
-      <footer>
-         Written and produced by JAIL
-      </footer>
+  <div id="message"></div>
+<footer> 
+  Written and produced by JAIL
+</footer>
+  <script>
+    var currentPosition
+    const redZones = {
+      Kowanyama: {
+        center: { lat: -15.47491, lng: 141.74524 },
+        population: 944,
+      },
+      Pormpuraaw: {
+        center: { lat: -14.89992, lng: 141.61907 },
+        population: 749,
+      },
+      Aurukun: {
+        center: { lat: -13.35494, lng: 141.7267 },
+        population: 1200,
+      },
+      Mapoon: {
+        center: { lat: -12.02368, lng: 141.90473 },
+        population: 317,
+      },
+      LockhartRiver: {
+        center: { lat: -13.0443, lng: 143.39503 },
+        population: 724,
+      },
+      Coen: {
+        center: { lat: -13.94521, lng: 143.19879 },
+        population: 364,
+      },
+      PortStewart: {
+        center: { lat: -14.06698, lng: 143.68564 },
+        population: 100,
+      },
+      Laura: {
+        center: { lat: -15.50184, lng: 144.2824 },
+        population: 658,
+      },
+      HopeVale: {
+        center: { lat: -15.29419, lng: 145.10823 },
+        population: 1015,
+      },
+      Cooktown: {
+        center: { lat: -15.47581, lng: 145.24709 },
+        population: 2631,
+      },
+      Lakeland: {
+        center: { lat: -15.85887, lng: 144.85715 },
+        population: 299,
+      },
+      Cairns: {
+        center: { lat: -16.92034, lng: 145.77095 },
+        population: 150041,
+      },
+    };
 
-   </body>
+    function initMap() {
+      var location = { lat: -16.183658, lng: 143.407154 };
+      var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 6,
+        center: location
+      });
+
+
+      for (const city in redZones) {
+        // Add the circle for this city to the map.
+        const cityCircle = new google.maps.Circle({
+          strokeColor: "#FF0000",
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: "#FF0000",
+          fillOpacity: 0.35,
+          map,
+          center: redZones[city].center,
+          radius: Math.sqrt(redZones[city].population) * 100,
+        });
+      }
+
+      function shouldIBeHere() {
+        var run = 0;
+        var placeName;
+        currentPosition = { lat: -16.879822, lng: 145.724483 };
+        for (const city in redZones) {
+          var circle = ({
+            center: redZones[city].center,
+            radius: Math.sqrt(redZones[city].population) * 100,
+          })
+          var test = ((currentPosition.lat - circle.center.lat) ^ 2) + ((currentPosition.lng - circle.center.lng) ^ 2)
+          if (test == circle.radius) {
+            run = 1;
+            alert("WARNING: You are bordering " + city);
+            document.getElementById("message").innerHTML = "WARNING: You are bordering " + city;
+            console.log("Border Warning");
+          }
+          if (isInside(circle.center.lat,circle.center.lng,circle.radius,currentPosition.lat,currentPosition.lng)) {
+            run = 1;
+            alert("WARNING: You have entered " + city + ", Leave the area immediately");
+            document.getElementById("message").innerHTML = "WARNING: You have entered " + city + '<br>' + "Leave the area immediately";
+            console.log("User has entered Red Zone");
+          }
+        }
+      }
+
+      function isInside(circle_x, circle_y, rad, x, y) {
+
+        if ((x - circle_x) * (x - circle_x) +
+          (y - circle_y) * (y - circle_y) <= rad * rad)
+          return true;
+        else
+          return false;
+      }
+      shouldIBeHere();
+      infoWindow = new google.maps.InfoWindow();
+      const locationButton = document.createElement("button");
+
+      locationButton.textContent = "Pan to Current Location";
+      locationButton.classList.add("custom-map-control-button");
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+      locationButton.addEventListener("click", () => {
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+
+              };
+              currentPosition = { lat: position.coords.latitude, lng: position.coords.longitude };
+              infoWindow.setPosition(pos);
+              infoWindow.setContent("Location found.");
+              infoWindow.open(map);
+              map.setCenter(pos);
+            },
+            () => {
+              handleLocationError(true, infoWindow, map.getCenter());
+            }
+          );
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      });
+    }
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(
+        browserHasGeolocation
+          ? "Error: The Geolocation service failed."
+          : "Error: Your browser doesn't support geolocation."
+      );
+    }
+    currentPosition = { lat: -16.879822, lng: 145.724483 };
+
+  </script>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-92p0UimIABQajoO6KH66IAceXE6WL2s&callback=initMap"></script>
+
+</body>
+
 </html>
