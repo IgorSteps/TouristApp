@@ -24,6 +24,11 @@
     display: flex;
   }
 
+  #SOS {
+    color: red; 
+    padding-right: 10%;
+  }
+
   h1 {
     text-align: center;
   }

@@ -10,9 +10,9 @@
   <header>
     <b>Tourist App
 
-      <a id = "SOS" href="tel:112">Emergency Call</a>
-      <a href="/">About</a>
-      <a href="/map">Map</a>
+      <a id="SOS" href="tel:112">Emergency Call</a>
+      <a href="/test2">About</a>
+      <a href="/test">Map</a>
     </b>
   </header>
 
@@ -54,62 +54,18 @@
   </div>
   <div id="app"></div>
   <div id="message"></div>
+
+  <div>
+  <%= console.log(holder.redZones[0]); %>
+  </div>
+
   <footer>
     Written and produced by JAIL
   </footer>
+
   <script>
     var currentPosition
-    const redZones = {
-      Kowanyama: {
-        center: { lat: -15.47491, lng: 141.74524 },
-        population: 944,
-      },
-      Pormpuraaw: {
-        center: { lat: -14.89992, lng: 141.61907 },
-        population: 749,
-      },
-      Aurukun: {
-        center: { lat: -13.35494, lng: 141.7267 },
-        population: 1200,
-      },
-      Mapoon: {
-        center: { lat: -12.02368, lng: 141.90473 },
-        population: 317,
-      },
-      LockhartRiver: {
-        center: { lat: -13.0443, lng: 143.39503 },
-        population: 724,
-      },
-      Coen: {
-        center: { lat: -13.94521, lng: 143.19879 },
-        population: 364,
-      },
-      PortStewart: {
-        center: { lat: -14.06698, lng: 143.68564 },
-        population: 100,
-      },
-      Laura: {
-        center: { lat: -15.50184, lng: 144.2824 },
-        population: 658,
-      },
-      HopeVale: {
-        center: { lat: -15.29419, lng: 145.10823 },
-        population: 1015,
-      },
-      Cooktown: {
-        center: { lat: -15.47581, lng: 145.24709 },
-        population: 2631,
-      },
-      Lakeland: {
-        center: { lat: -15.85887, lng: 144.85715 },
-        population: 299,
-      },
-      Cairns: {
-        center: { lat: -16.92034, lng: 145.77095 },
-        population: 150041,
-      },
-    };
-
+    var redZones = '<%=(holder.redZones[0].city) %>';
     function initMap() {
       var location = { lat: -16.183658, lng: 143.407154 };
       var map = new google.maps.Map(document.getElementById("map"), {
@@ -202,30 +158,6 @@
     }
   </script>
 
-  <script>
-    const div = document.querySelector("#app");
-    const url = "https://jsonplaceholder.typicode.com/posts/1";
-
-    // sending request
-    fetch(url).then((response) => {
-      return response.json();  // converting byte data to json
-    }).then(data => {
-
-      const { title, body } = data;
-
-      // creating h1 and p elements
-      const h1 = document.createElement('h1');
-      const p = document.createElement('p');
-
-      // adding content
-      h1.textContent = title;
-      p.textContent = body;
-
-      // appending to div element
-      div.appendChild(h1);
-      div.appendChild(p);
-    })
-  </script>
 
   <!-- <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-92p0UimIABQajoO6KH66IAceXE6WL2s&callback=initMap"></script> -->
