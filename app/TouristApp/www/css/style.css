@@ -1,64 +1,180 @@
-  #map {
-    height: 500px;
-    width: 500px;
+#map {
+  height: 500px;
+  width: 500px;
+}
+
+#circle {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  opacity: 0.5;
+  float: left;
+}
+
+#key {
+  width: 150px;
+  padding-right: 10%;
+}
+
+#mapZone {
+  padding: 10%;
+  justify-content: center;
+  display: flex;
+}
+
+h1 {
+  text-align: center;
+}
+
+header
+{
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px black;
+	position: sticky;
+	top: 0;
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+}
+
+/*nav*/
+nav ul
+{
+  display: flex;
+  padding-left: 50px;
+  list-style: none;
+}
+
+nav ul li
+{
+  margin-right: 10%;
+}
+
+nav ul li:first-child
+{
+  margin-left: 10%;
+  margin-right: auto;
+}
+
+nav ul li a
+{
+  display: inline-block;
+  outline: none;
+  color: #333333;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1.24px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+article {
+  border: 1px solid grey;
+  border-radius: 10px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  width: 60%;
+}
+
+html {
+  font-family: sans-serif;
+  color: #D57B0F;
+}
+
+footer
+{
+	color: #35424a;
+	clear: both;
+  margin: auto;
+	bottom: 0;
+	height: 50px;
+	text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #D57B0F;
+}
+
+a:hover
+{
+  color: blue;
+}
+
+nav a img
+{
+  height: 15px;
+  visibility: hidden;
+}
+
+.center
+{
+	display: flex;
+	margin: auto;
+	max-width: fit-content;
+}
+
+
+/** Mobile Devices **/
+@media only screen and (max-width:768px)
+{
+  nav
+  {
+    height: fit-content;
   }
 
-  #circle {
-    width: 50px;
-    height: 50px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
-    opacity: 0.5;
-    float: left;
+  nav li
+  {
+    padding: 0px 8px 0px 8px;
+    display: inline-block;
+    float: none;
+    background-color: rgba(0, 0, 0, 0.119);
+    border-radius: 5px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  nav a p
+  {
+    visibility: hidden;
+    width: 0;
+    display: inline;
+  }
+  nav li a
+  {
+    visibility: visible;
   }
 
-  #key {
-    width: 150px;
-    padding-right: 10%;
+  nav a img
+  {
+    visibility: visible;
   }
 
-  #mapZone {
-    padding: 10%;
-    justify-content: center;
-    display: flex;
+  nav ul
+  {
+    margin: 0;
+    padding: 0;
   }
 
-  #SOS {
-    color: red; 
-    padding-right: 10%;
+  nav ul li
+  {
+    margin: 1px;
   }
 
-  h1 {
-    text-align: center;
+  nav ul li:first-child
+  {
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  header {
-    border: 1px solid grey;
-    border-radius: 10px;
-    padding: 10px;
-    padding-left: 10%;
-    box-shadow: 0px 2px rgba(128, 128, 128, 0.514);
+  nav ul li a
+  {
+    font-size: 0.8em;
   }
-
-  article {
-    border: 1px solid grey;
-    border-radius: 10px;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 40px;
-    width: 60%;
-  }
-
-  html {
-    font-family: sans-serif;
-    color: #D57B0F;
-  }
-
-  a {
-    float: right;
-    padding-left: 10%;
-    text-decoration: none;
-    color: #D57B0F;
-  }
+}
