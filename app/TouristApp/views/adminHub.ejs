@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ADMIN</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <main>
+        <div>
+            <article>
+                Add New Out of Bounds area:
+                <div id="map"></div>
+                <form action="/addArea" method="post">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name"><br>
+                    <label for="pass">Coordinates:</label><br>
+                    <input type="text" id="xcoord" name="xcoord" placeholder="x-Coordinates"><span id = "xcoordUI">X Coordinate (Map)</span>
+                    <input type="text" id="ycoord" name="ycoord" placeholder="y-Coordinates"><span id = "ycoordUI">Y Coordinate (Map) </span><br>
+                    <label for="pass">Population:</label><br>
+                    <input type="text" id="population" name="population">
+                    <button type="submit" value="addLocal" name="addLocal">Add Location</button>
+                </form>
+            </article>
+
+            <article>
+                Remove Out of Bounds Area:
+                <ul id="list"></ul>
+                <form action="/removeArea" method="post">
+                    <label for="name">Number:</label><br>
+                    <input type="number" id="num" name="num"><br>
+                    <button type="submit" value="deleteLocal" name="deleteLocal">Remove Location</button>
+                </form>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        Written and produced by JAIL
+    </footer>
+
+    <script>
+        var redZones = JSON.parse(`<%- (JSON.stringify(holder.redZones)) %>`);
+        output = '<ol>'
+            var extension = '<li>' + redZones[0].city + '</li>'
+        for(var i= 1; i<= (redZones.length -1) ;i++){
+                extension = extension +  '<li>' + redZones[i].city + '</li>'; 
+                  
+                  }
+                  output = output  + extension + '</ol>';
+                  document.getElementById('list').innerHTML=output;
+        </script>
+
+    <script>
+        var currentPosition
+        var redZones = JSON.parse(`<%- (JSON.stringify(holder.redZones)) %>`);
+
+        function initMap() {
+            var location = { lat: -16.183658, lng: 143.407154 };
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 6,
+                center: location
+            });
+
+
+            for (const city in redZones) {
+                // Add the circle for this city to the map.
+                const cityCircle = new google.maps.Circle({
+                    strokeColor: "#FF0000",
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: "#FF0000",
+                    fillOpacity: 0.35,
+                    map,
+                    center: redZones[city].center,
+                    radius: Math.sqrt(redZones[city].population) * 100,
+                });
+            }
+
+            function shouldIBeHere() {
+                var run = 0;
+                var placeName;
+                // currentPosition = { lat: -16.879822, lng: 145.724483 };
+                for (const city in redZones) {
+                    var circle = ({
+                        center: redZones[city].center,
+                        radius: Math.sqrt(redZones[city].population) * 100,
+                    })
+                    var difference = google.maps.geometry.spherical.computeDistanceBetween(currentPosition, circle.center);
+                    var test = ((currentPosition.lat - circle.center.lat) ^ 2) + ((currentPosition.lng - circle.center.lng) ^ 2)
+                    if (difference == circle.radius) {
+                        run = 1;
+                        alert("WARNING: You are bordering " + city);
+                        document.getElementById("message").innerHTML = "WARNING: You are bordering " + city;
+                        console.log("Border Warning");
+                    }
+                    if (difference < circle.radius) {
+                        run = 1;
+                        alert("WARNING: You have entered " + city + ", Leave the area immediately");
+                        document.getElementById("message").innerHTML = "WARNING: You have entered " + city + '<br>' + "Leave the area immediately";
+                        console.log("User has entered" + city);
+                    }
+                }
+            }
+
+            var array = [];
+            google.maps.event.addListener(map, "click", function (event) {
+                var latitude = event.latLng.lat();
+                var longitude = event.latLng.lng();
+                console.log(latitude + ', ' + longitude);
+
+                radius = new google.maps.Circle({
+                    map: map,
+                    radius: 1000,
+                    center: event.latLng,
+                    fillColor: '#777',
+                    fillOpacity: 0.1,
+                    strokeColor: '#AA0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                });
+                
+            var x = document.getElementById("xcoord");
+            var y = document.getElementById("ycoord");
+            x.setAttribute('value', latitude);
+            y.setAttribute('value', longitude);
+                // document.getElementById('xcoord').innerHTML=latitude;
+                // document.getElementById('xcoordUI').innerHTML=latitude;
+                // document.getElementById('ycoord').innerHTML=longitude;
+                // document.getElementById('ycoordUI').innerHTML=longitude
+
+            });
+
+            shouldIBeHere();
+
+            infoWindow = new google.maps.InfoWindow();
+            const locationButton = document.createElement("button");
+
+            locationButton.textContent = "Pan to Current Location";
+            locationButton.classList.add("custom-map-control-button");
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+            locationButton.addEventListener("click", () => {
+                // Try HTML5 geolocation.
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            const pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude,
+
+                            };
+                            currentPosition = { lat: position.coords.latitude, lng: position.coords.longitude };
+                            infoWindow.setPosition(pos);
+                            infoWindow.setContent("Location found.");
+                            infoWindow.open(map);
+                            map.setCenter(pos);
+                        },
+                        () => {
+                            handleLocationError(true, infoWindow, map.getCenter());
+                        }
+                    );
+                } else {
+                    // Browser doesn't support Geolocation
+                    handleLocationError(false, infoWindow, map.getCenter());
+                }
+            });
+        }
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(
+                browserHasGeolocation
+                    ? "Error: The Geolocation service failed."
+                    : "Error: Your browser doesn't support geolocation."
+            );
+        }
+
+
+    </script>
+
+
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-92p0UimIABQajoO6KH66IAceXE6WL2s&libraries=geometry&callback=initMap">
+        </script>
+</body>
+
+</html>
