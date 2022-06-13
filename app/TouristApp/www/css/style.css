@@ -30,6 +30,7 @@ h1 {
 
 header
 {
+  z-index: 1;
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid grey;
   border-radius: 10px;
@@ -38,6 +39,16 @@ header
 	top: 0;
 	backdrop-filter: blur(3px);
 	-webkit-backdrop-filter: blur(3px);
+}
+
+a
+{
+  color: #D57B0F;
+}
+
+a:hover
+{
+  color: blue;
 }
 
 /*nav*/
@@ -73,6 +84,26 @@ nav ul li a
   font-style: normal;
 }
 
+nav a
+{
+  text-decoration: none;
+  -moz-transition: all .1s ease-in;
+  -o-transition: all .1s ease-in;
+  -webkit-transition: all .1s ease-in;
+  transition: all .1s ease-in;
+}
+
+nav a img
+{
+  height: 15px;
+  visibility: hidden;
+}
+
+form
+{
+  display: block;
+}
+
 article {
   border: 1px solid grey;
   border-radius: 10px;
@@ -98,22 +129,6 @@ footer
 	text-align: center;
 }
 
-a {
-  text-decoration: none;
-  color: #D57B0F;
-}
-
-a:hover
-{
-  color: blue;
-}
-
-nav a img
-{
-  height: 15px;
-  visibility: hidden;
-}
-
 .center
 {
 	display: flex;
@@ -125,6 +140,14 @@ nav a img
 /** Mobile Devices **/
 @media only screen and (max-width:768px)
 {
+  header
+  {
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px black solid;
+    box-shadow: none;
+  }
+
   nav
   {
     height: fit-content;
@@ -135,8 +158,8 @@ nav a img
     padding: 0px 8px 0px 8px;
     display: inline-block;
     float: none;
-    background-color: rgba(0, 0, 0, 0.119);
-    border-radius: 5px;
+    border-right: 2px black solid;
+    border-left: 2px black solid;
     margin-left: 0;
     margin-right: 0;
   }

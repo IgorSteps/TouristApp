@@ -3,8 +3,8 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Jail - Emergency</title>
-      <link rel="stylesheet" type="text/css" href="/css/test.css">
+      <title>Jail - Login</title>
+      <link rel="stylesheet" type="text/css" href="../www/css/style.css">
       <link rel="icon" type="image/x-icon" href="/favicon.ico">
    </head>
 
@@ -14,17 +14,19 @@
       <main>
          <div>
             <h2>JAIL</h2>
-               <p class="center">
-                  Login:
+               <div class="center">
                   <form action="/auth" method="post">
-                    <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email" ><br>
-                    <label for="pass">Password:</label><br>
-                    <input type="text" id="password" name="password" ><br>
-                    <button type="submit" value="Login" name="submit">Login</button>
+                     <h2>Login:</h2>
+                     <label for="email">Email:</label><br>
+                     <input type="email" id="email" name="email" ><br>
+                     <label for="pass">Password:</label><br>
+                     <input type="text" id="password" name="password" ><br>
+                     <button type="submit" value="Login" name="submit">Login</button>
                   </form>
-               </p>
-               Don't have an account? <a href="/registration"> Register Now</a>
+                  <br>
+                  Don't have an account? <a href="/registration"> Register Now</a>
+
+               </div>
          </div>
       </main>
 
