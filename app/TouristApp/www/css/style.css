@@ -1,25 +1,31 @@
 #map {
   height: 500px;
-  width: 500px;
+  width: 100%;
+  border-radius: 5px;
 }
 
 #circle {
-  width: 50px;
-  height: 50px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
+  width: 25px;
+  height: 15px;
   border-radius: 25px;
   opacity: 0.5;
   float: left;
+  margin-right: 2px;
 }
 
 #key {
   width: 10%;
   margin: 3px;
+  font-size: 1.2vw;
 }
 
-#mapZone {
-  padding: 10%;
+#key div
+{
+  display: inline-flex;
+}
+
+#mapZone 
+{
   justify-content: center;
   display: flex;
 }
@@ -107,6 +113,7 @@ form
 
 button
 {
+  margin: 2px;
   padding: 5px;
   border: 1px #D57B0F solid;
   border-radius: 10px;
@@ -120,7 +127,7 @@ button
 button:hover
 {
   box-shadow: 1px 1px 1px black;
-  border-color: blue;
+  color:red;
 }
 
 .danger
@@ -171,18 +178,13 @@ footer
   #key
   {
     display: inline;
-    font-size: small;
+    font-size: 1.5vw;
   }
 
   #circle
   {
-    width: 5px;
-    height: 5px;
-  }
-
-  #key div
-  {
-    display: block;
+    width: 20px;
+    height: 10px;
   }
 
   header
@@ -214,15 +216,9 @@ footer
     margin-left: 0;
     margin-right: 0;
   }
-  nav a p
-  {
-    visibility: hidden;
-    width: 0;
-    display: inline;
-  }
   nav li a
   {
-    visibility: visible;
+    color: transparent;
   }
 
   nav a img
