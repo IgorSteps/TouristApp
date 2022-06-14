@@ -49,12 +49,13 @@ header
 
 a
 {
-  color: #D57B0F;
+  color: rgba(255, 155, 0);
 }
 
 a:hover
 {
-  color: #D57B0F;
+  color: #ffb861;
+  cursor: pointer;
   text-decoration: underline;
 }
 
@@ -165,7 +166,7 @@ footer
 
 h1, h2, h3, h4
 {
-  color: #D57B0F;
+  color: rgba(255, 155, 0);
   box-shadow: 0 4px 3px -6px black;
 }
 
@@ -234,11 +235,10 @@ h1, h2, h3, h4
 
   nav ul
   {
-    margin: 0;
     padding: 0;
     display: flex;
     margin: auto;
-    max-width: fit-content;
+    width: 100%;
   }
 
   nav ul li
@@ -259,6 +259,6 @@ h1, h2, h3, h4
 
   nav ul li a
   {
-    font-size: 0.8em;
+    font-size: 3vw;
   }
 }
