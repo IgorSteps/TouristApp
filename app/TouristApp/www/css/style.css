@@ -212,16 +212,6 @@ footer
     height: fit-content;
   }
 
-  nav li
-  {
-    padding: 0px 8px 0px 8px;
-    display: inline-block;
-    float: none;
-    border-right: 2px black solid;
-    border-left: 2px black solid;
-    margin-left: 0;
-    margin-right: 0;
-  }
   nav li a
   {
     color: transparent;
@@ -236,11 +226,19 @@ footer
   {
     margin: 0;
     padding: 0;
+    display: flex;
+    margin: auto;
+    max-width: fit-content;
   }
 
   nav ul li
   {
-    margin: 1px;
+    padding: 0px 8px 0px 8px;
+    display: inline-block;
+    float: none;
+    background-color: rgba(0, 0, 0, 0.03);
+    box-shadow: 1px 1px 1px black;
+    margin: 0px 3px 3px 0;
   }
 
   nav ul li:first-child
