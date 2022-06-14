@@ -148,7 +148,7 @@ main
 
 html {
   font-family: sans-serif;
-  color: #D57B0F;
+  color: #363636;
 }
 
 footer
@@ -162,6 +162,11 @@ footer
   position: fixed;
   width: 100%;
   background: rgba(255, 255, 255, 0.88);
+}
+
+h1, h2, h3, h4
+{
+  color: #D57B0F;
 }
 
 .center
