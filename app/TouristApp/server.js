@@ -49,7 +49,7 @@ app.get('/redZones', function (req, res) {
 
 // EJS 
  app.get('/', function(request, response) {  
-   response.render('login');
+   response.render('maps', { holder: jsonFile});
  });
 
  //Cited from https://codeshack.io/basic-login-system-nodejs-express-mysql/
@@ -111,22 +111,22 @@ app.post('/removeArea', function(request, response) {
 	response.redirect('/admin');
 });
 
-  app.get('/map', function(request, response) {  
-    if (request.session.loggedin) {
+  app.get('/login', function(request, response) {  
+    // if (request.session.loggedin) {
       // Output username
-      response.render('maps', { holder: jsonFile});
-    } else {
-      response.redirect('landing');
-    }
+      response.render('login');
+    // } else {
+    //   response.redirect('landing');
+    // }
    
  });
 
  app.get('/about', function(request, response) { 
-  if (request.session.loggedin) {
-		response.render('index' ,{ name: request.session.name });
-	} else {
-		response.redirect('landing');
-	} 
+//   if (request.session.loggedin) {
+		response.render('index');
+	// } else {
+	// 	response.redirect('landing');
+	// } 
   });
 
   app.get('/registration', function(request, response) {  
@@ -137,7 +137,10 @@ app.post('/removeArea', function(request, response) {
 	  
 	connection.query('INSERT INTO users(name, email, password, admin) VALUES (?,?,?,?)', [request.body.name, request.body.email, request.body.password, 0], function (err, records) {
  
-                if (err) console.log(err)
+                if (err) {
+					response.redirect('registration');
+					console.log(err)
+				}
  
             });
     });
@@ -153,6 +156,15 @@ app.post('/removeArea', function(request, response) {
       response.redirect('landing');
     } 
     });
+	
+	app.get('/news', function(request, response) {  
+		response.render('news');
+	  });
+
+	app.get('/emergency', function(request, response) {  
+		response.render('emergency');
+	});
+	
 
 
 app.listen(port);
