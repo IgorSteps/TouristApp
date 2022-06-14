@@ -18,21 +18,25 @@
             <article>
                 Add New Out of Bounds area:
                 <div id="map"></div>
-                <form action="/addArea" method="post">
-                    <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name"><br>
-                    <label for="pass">Coordinates:</label><br>
-                    <input type="text" id="xcoord" name="xcoord" placeholder="x-Coordinates"><span id = "xcoordUI">X Coordinate (Map)</span>
-                    <input type="text" id="ycoord" name="ycoord" placeholder="y-Coordinates"><span id = "ycoordUI">Y Coordinate (Map) </span><br>
-                    <label for="pass">Population:</label><br>
-                    <input type="text" id="population" name="population">
-                    <button type="submit" value="addLocal" name="addLocal">Add Location</button>
-                </form>
+                <div class="center">
+                    <form action="/addArea" method="post">
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="name"><br>
+                        <label for="pass">Coordinates:</label><br>
+                        <input type="text" id="xcoord" name="xcoord" placeholder="x-Coordinates"><span id = "xcoordUI">X Coordinate (Map)</span><br>
+                        <input type="text" id="ycoord" name="ycoord" placeholder="y-Coordinates"><span id = "ycoordUI">Y Coordinate (Map) </span><br>
+                        <label for="pass">Population:</label><br>
+                        <input type="text" id="population" name="population">
+                        <button type="submit" value="addLocal" name="addLocal">Add Location</button>
+                    </form>
+                </div>
             </article>
 
             <article>
-                Remove Out of Bounds Area:
-                <ul id="list"></ul>
+                <h2>Remove Out of Bounds Area:</h2>
+                <div>
+                    <ul id="list"></ul>
+                </div>
                 <form action="/removeArea" method="post">
                     <label for="name">Number:</label><br>
                     <input type="number" id="num" name="num"><br>
