@@ -178,13 +178,18 @@ footer
   #key
   {
     display: inline;
-    font-size: 1.5vw;
+    font-size: medium;
+  }
+
+  #key div
+  {
+    display: block;
   }
 
   #circle
   {
     width: 20px;
-    height: 10px;
+    height: 20px;
   }
 
   #mapZone
