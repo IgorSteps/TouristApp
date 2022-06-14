@@ -87,10 +87,10 @@ nav ul li a
 nav a
 {
   text-decoration: none;
-  -moz-transition: all .1s ease-in;
-  -o-transition: all .1s ease-in;
-  -webkit-transition: all .1s ease-in;
-  transition: all .1s ease-in;
+  -moz-transition: all .1s linear;
+  -o-transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
 }
 
 nav a img
@@ -102,6 +102,30 @@ nav a img
 form
 {
   display: block;
+}
+
+button
+{
+  padding: 5px;
+  border: 1px #D57B0F solid;
+  border-radius: 10px;
+  background: none;
+  -moz-transition: all .1s linear;
+  -o-transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+button:hover
+{
+  box-shadow: 1px 1px 1px black;
+  border-color: blue;
+}
+
+.danger
+{
+  border-color: red;
+  border-width: 3px;
 }
 
 article {
@@ -122,11 +146,14 @@ html {
 footer
 {
 	color: #35424a;
-	clear: both;
+  clear: both;
   margin: auto;
-	bottom: 0;
-	height: 50px;
-	text-align: center;
+  bottom: 0;
+  height: min-content;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.88);
 }
 
 .center
