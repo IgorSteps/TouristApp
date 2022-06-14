@@ -9,7 +9,7 @@ Control the tourism in parts of Australia.
 - mysql - `npm install mysql --save`.
 
 ## Additional dependencies
-(XAMPP)[https://www.apachefriends.org/] to run SQL server, run Apache & mysql.
+[XAMPP](https://www.apachefriends.org/) to run SQL server, run Apache & mysql.
 
 ## Run
 Navigate to the root directory, run `npm run start`. Access through: http://localhost:8080/.
