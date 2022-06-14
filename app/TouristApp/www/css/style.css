@@ -14,8 +14,8 @@
 }
 
 #key {
-  width: 150px;
-  padding-right: 10%;
+  width: 10%;
+  margin: 3px;
 }
 
 #mapZone {
@@ -48,7 +48,8 @@ a
 
 a:hover
 {
-  color: blue;
+  color: #D57B0F;
+  text-decoration: underline;
 }
 
 /*nav*/
@@ -128,12 +129,12 @@ button:hover
   border-width: 3px;
 }
 
-article {
+main
+{
   border: 1px solid grey;
   border-radius: 10px;
   text-align: left;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto 20px auto;
   padding: 40px;
   width: 60%;
 }
@@ -167,12 +168,35 @@ footer
 /** Mobile Devices **/
 @media only screen and (max-width:768px)
 {
+  #key
+  {
+    display: inline;
+    font-size: small;
+  }
+
+  #circle
+  {
+    width: 5px;
+    height: 5px;
+  }
+
+  #key div
+  {
+    display: block;
+  }
+
   header
   {
     border: none;
     border-radius: 0;
     border-bottom: 2px black solid;
     box-shadow: none;
+  }
+
+  main
+  {
+    width: 98%;
+    padding: 3px;
   }
 
   nav
