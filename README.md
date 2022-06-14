@@ -8,7 +8,8 @@ Control the tourism in parts of Australia.
 - express session - `npm install express-session --save`.
 - mysql - `npm install mysql --save`.
 
-XAMPP to run SQL server, run Apache & mysql.
+## Additional dependencies
+(XAMPP)[https://www.apachefriends.org/] to run SQL server, run Apache & mysql.
 
 ## Run
 Navigate to the root directory, run `npm run start`. Access through: http://localhost:8080/.
