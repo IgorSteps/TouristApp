@@ -112,13 +112,30 @@ form
   display: block;
 }
 
+input
+{
+  border: solid 2px #363636;;
+  border-radius: 5px;
+}
+
+input:hover
+{
+  border-color: #D57B0F;
+}
+
+input:focus
+{
+  box-shadow: 1px 1px 1px black;
+}
+
 button
 {
   margin: 2px;
   padding: 5px;
-  border: 1px #D57B0F solid;
-  border-radius: 10px;
-  background: none;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: rgba(255, 155, 0);
   -moz-transition: all .1s linear;
   -o-transition: all .1s linear;
   -webkit-transition: all .1s linear;
@@ -128,7 +145,6 @@ button
 button:hover
 {
   box-shadow: 1px 1px 1px black;
-  color:red;
 }
 
 .danger
