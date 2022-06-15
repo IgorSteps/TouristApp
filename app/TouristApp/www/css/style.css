@@ -110,12 +110,15 @@ nav a img
 form
 {
   display: block;
+  margin: 10px;
+  padding: 10px;
 }
 
 input
 {
   border: solid 2px #363636;;
   border-radius: 5px;
+  margin: 5px auto;
 }
 
 input:hover
@@ -151,6 +154,11 @@ button:hover
 {
   border-color: red;
   border-width: 3px;
+}
+
+span
+{
+  margin: 0px 5px;
 }
 
 main
