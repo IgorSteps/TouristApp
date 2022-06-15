@@ -162,19 +162,17 @@ h1, h2, h3, h4
   background: rgba(255, 255, 255, 0.88);
   color: rgba(255, 155, 0);
   border-radius: 10px;
-  border: 2px solid;
-  padding: 10px 40px 10px 40px;
-  box-shadow: 1px 1px 1px black;
-	position: sticky;
-	top: 0;
-	backdrop-filter: blur(3px);
-	-webkit-backdrop-filter: blur(3px);
+  padding: 0px 40px;
+  box-shadow: 0px 0px 5px 0px #797979;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 .brand-title {
   font-size: 1.5rem;
   margin: .5rem;
-  text-decoration: none;
 }
 
 .navbar-links {
@@ -198,6 +196,15 @@ h1, h2, h3, h4
   padding: 1rem;
 }
 
+.navbar a
+{
+  text-decoration: none;
+}
+
+.navbar a:hover
+{
+  text-decoration: underline;
+}
 
 .toggle-button {
   position: absolute;
@@ -237,7 +244,7 @@ h1, h2, h3, h4
     width: 20px;
     height: 20px;
   }
-  
+
   #mapZone
   {
     display: block;
