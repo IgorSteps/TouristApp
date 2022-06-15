@@ -4,23 +4,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jail - Maps</title>
+    <title>Jila - Maps</title>
+    <script src = "js/index.js"  defer></script>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
  </head>
 
 
 <body>
-  <header>
-    <nav>
-       <ul>
-          <li><a href="./index.html">Home<img src="./img/home icon.png"></a></li>
-          <li><a href="./maps.html">Maps</a></li>
-          <li><a href="./news.html">News</a></li>
-          <li><a href="./emergency.html">Emergency Call</a></li>
-       </ul>
-    </nav>
- </header>
+  <nav class="navbar">
+    <div class="brand-title">TouristApp</div>
+    <a href="#" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div class="navbar-links ">
+      <ul>
+        <li><a href="./maps.html">Map</a></li>
+        <li><a href="./news.html">News</a></li>
+        <li><a href="./emergency.html">Emergency</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <main>
     <div id=mapZone>
       <div id="map"></div>
