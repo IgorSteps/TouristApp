@@ -202,28 +202,7 @@
   </script>
 
   <script>
-    const div = document.querySelector("#app");
-    const url = "https://jsonplaceholder.typicode.com/posts/1";
-
-    // sending request
-    fetch(url).then((response) => {
-      return response.json();  // converting byte data to json
-    }).then(data => {
-
-      const { title, body } = data;
-
-      // creating h1 and p elements
-      const h1 = document.createElement('h1');
-      const p = document.createElement('p');
-
-      // adding content
-      h1.textContent = title;
-      p.textContent = body;
-
-      // appending to div element
-      div.appendChild(h1);
-      div.appendChild(p);
-    })
+    
   </script>
 
   <!-- <script async defer
