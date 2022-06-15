@@ -226,7 +226,7 @@ h1, h2, h3, h4
   transition: all .1s linear;
 }
 
-.navbar a:hover
+.navbar-links a:hover
 {
   text-decoration: underline;
 }
