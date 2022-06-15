@@ -112,21 +112,11 @@ app.post('/removeArea', function(request, response) {
 });
 
   app.get('/login', function(request, response) {  
-    // if (request.session.loggedin) {
-      // Output username
-      response.render('login');
-    // } else {
-    //   response.redirect('landing');
-    // }
-   
+      response.render('login'); 
  });
 
  app.get('/about', function(request, response) { 
-//   if (request.session.loggedin) {
 		response.render('index');
-	// } else {
-	// 	response.redirect('landing');
-	// } 
   });
 
   app.get('/registration', function(request, response) {  
@@ -150,11 +140,12 @@ app.post('/removeArea', function(request, response) {
   });
 
   app.get('/admin', function(request, response) { 
-    // if (request.session.admin) {
+    if (request.session.admin) {
       response.render('adminHub', {holder: jsonFile });
-    // } else {
-    //   response.redirect('landing');
-    // } 
+    } else {
+		console.log("Non-Admin cannot access admin page");
+      response.redirect('landing');
+    } 
   });
 	
 	app.get('/news', function(request, response) {  

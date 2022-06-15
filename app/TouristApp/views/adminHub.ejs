@@ -28,6 +28,7 @@
                         <label for="pass">Population:</label><br>
                         <input type="text" id="population" name="population">
                         <button type="submit" value="addLocal" name="addLocal">Add Location</button>
+                        <% console.log("Admin has added new location to map") %> 
                     </form>
                 </div>
             </article>
@@ -52,13 +53,14 @@
 
     <script>
         var redZones = JSON.parse(`<%- (JSON.stringify(holder.redZones)) %>`);
-        output = '<ol>'
-            var extension = '<li>' + '<form action="/removeArea" method="post">' + '<button type="submit" value="' + 0 + '" name="deletelocal" id ="deletelocal">' + redZones[0].city + '</button>' + '</form>' + '</li>'
+        output = '<div class = adminbox>'
+            var extension = '<form action="/removeArea" method="post">' + '<button type="submit" value="' + 0 + '" name="deletelocal" id ="deletelocal">' + redZones[0].city + '</button>' + '</form>';
         for(var i= 1; i<= (redZones.length -1) ;i++){
-                extension = extension +  '<li>' + '<form action="/removeArea" method="post">' + '<button type="submit" value="' + i + '" name="deletelocal" id ="deletelocal">' + redZones[i].city + '</button>' + '</form>' + '</li>'; 
+                extension = extension + '<form action="/removeArea" method="post">' + '<button type="submit" value="' + i + '" name="deletelocal" id ="deletelocal">' + redZones[i].city + '</button>' + '</form>'; 
                   
                   }
-                  output = output  + extension + '</ol>';
+                  output = output  + extension + '</div>';
+                  console.log("Admin has removed location from map");
                   document.getElementById('list').innerHTML=output;
         </script>
 
@@ -184,6 +186,7 @@
                     : "Error: Your browser doesn't support geolocation."
             );
         }
+
 
 
     </script>
