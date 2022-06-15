@@ -55,7 +55,7 @@ form
 
 input
 {
-  border: solid 2px #363636;;
+  border: solid 1px #363636;;
   border-radius: 5px;
   margin: 5px auto;
 }
@@ -86,7 +86,8 @@ button
 
 button:hover
 {
-  box-shadow: 0px 0px 5px 0px #797979;
+  background-color: rgb(252, 180, 48);
+  box-shadow: 1px 1px 1px black;
 }
 
 .danger
@@ -102,7 +103,7 @@ span
 
 main
 {
-  border: 1px solid grey;
+  box-shadow: 0px 0px 5px 0px #797979;
   border-radius: 10px;
   text-align: left;
   margin: 10px auto 20px auto;
@@ -134,6 +135,12 @@ footer
   position: fixed;
   width: 100%;
   background: rgba(255, 255, 255, 0.88);
+}
+
+footer a
+{
+  margin: 0px 5px;
+  color: #6c6b6b;
 }
 
 h1, h2, h3, h4
@@ -199,6 +206,10 @@ h1, h2, h3, h4
 .navbar a
 {
   text-decoration: none;
+  -moz-transition: all .1s linear;
+  -o-transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
 }
 
 .navbar a:hover
