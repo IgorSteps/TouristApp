@@ -207,7 +207,31 @@ h1, h2, h3, h4
   border-radius: 10px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 800px)
+{
+
+  #key
+  {
+    display: inline;
+    font-size: medium;
+  }
+
+  #key div
+  {
+    display: block;
+  }
+
+  #circle
+  {
+    width: 20px;
+    height: 20px;
+  }
+  
+  #mapZone
+  {
+    display: block;
+  }
+
   .navbar {
       flex-direction: column;
       align-items: flex-start;
