@@ -37,11 +37,11 @@
                 <div>
                     <ul id="list"></ul>
                 </div>
-                <form action="/removeArea" method="post">
+                <!-- <form action="/removeArea" method="post">
                     <label for="name">Number:</label><br>
                     <input type="number" id="num" name="num"><br>
                     <button type="submit" value="deleteLocal" name="deleteLocal">Remove Location</button>
-                </form>
+                </form> -->
             </article>
         </div>
     </main>
@@ -53,9 +53,9 @@
     <script>
         var redZones = JSON.parse(`<%- (JSON.stringify(holder.redZones)) %>`);
         output = '<ol>'
-            var extension = '<li>' + redZones[0].city + '</li>'
+            var extension = '<li>' + '<form action="/removeArea" method="post">' + '<button type="submit" value="' + 0 + '" name="deletelocal" id ="deletelocal">' + redZones[0].city + '</button>' + '</form>' + '</li>'
         for(var i= 1; i<= (redZones.length -1) ;i++){
-                extension = extension +  '<li>' + redZones[i].city + '</li>'; 
+                extension = extension +  '<li>' + '<form action="/removeArea" method="post">' + '<button type="submit" value="' + i + '" name="deletelocal" id ="deletelocal">' + redZones[i].city + '</button>' + '</form>' + '</li>'; 
                   
                   }
                   output = output  + extension + '</ol>';
@@ -88,31 +88,31 @@
                 });
             }
 
-            function shouldIBeHere() {
-                var run = 0;
-                var placeName;
-                // currentPosition = { lat: -16.879822, lng: 145.724483 };
-                for (const city in redZones) {
-                    var circle = ({
-                        center: redZones[city].center,
-                        radius: Math.sqrt(redZones[city].population) * 100,
-                    })
-                    var difference = google.maps.geometry.spherical.computeDistanceBetween(currentPosition, circle.center);
-                    var test = ((currentPosition.lat - circle.center.lat) ^ 2) + ((currentPosition.lng - circle.center.lng) ^ 2)
-                    if (difference == circle.radius) {
-                        run = 1;
-                        alert("WARNING: You are bordering " + city);
-                        document.getElementById("message").innerHTML = "WARNING: You are bordering " + city;
-                        console.log("Border Warning");
-                    }
-                    if (difference < circle.radius) {
-                        run = 1;
-                        alert("WARNING: You have entered " + city + ", Leave the area immediately");
-                        document.getElementById("message").innerHTML = "WARNING: You have entered " + city + '<br>' + "Leave the area immediately";
-                        console.log("User has entered" + city);
-                    }
-                }
-            }
+            // function shouldIBeHere() {
+            //     var run = 0;
+            //     var placeName;
+            //     // currentPosition = { lat: -16.879822, lng: 145.724483 };
+            //     for (const city in redZones) {
+            //         var circle = ({
+            //             center: redZones[city].center,
+            //             radius: Math.sqrt(redZones[city].population) * 100,
+            //         })
+            //         var difference = google.maps.geometry.spherical.computeDistanceBetween(currentPosition, circle.center);
+            //         var test = ((currentPosition.lat - circle.center.lat) ^ 2) + ((currentPosition.lng - circle.center.lng) ^ 2)
+            //         if (difference == circle.radius) {
+            //             run = 1;
+            //             alert("WARNING: You are bordering " + city);
+            //             document.getElementById("message").innerHTML = "WARNING: You are bordering " + city;
+            //             console.log("Border Warning");
+            //         }
+            //         if (difference < circle.radius) {
+            //             run = 1;
+            //             alert("WARNING: You have entered " + city + ", Leave the area immediately");
+            //             document.getElementById("message").innerHTML = "WARNING: You have entered " + city + '<br>' + "Leave the area immediately";
+            //             console.log("User has entered" + city);
+            //         }
+            //     }
+            // }
 
             var array = [];
             google.maps.event.addListener(map, "click", function (event) {
@@ -142,12 +142,12 @@
 
             });
 
-            shouldIBeHere();
+            // shouldIBeHere();
 
             infoWindow = new google.maps.InfoWindow();
             const locationButton = document.createElement("button");
 
-            locationButton.textContent = "Pan to Current Location";
+            // locationButton.textContent = "Pan to Current Location";
             locationButton.classList.add("custom-map-control-button");
             map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
             locationButton.addEventListener("click", () => {
