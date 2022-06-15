@@ -35,7 +35,7 @@
                 <div id="map"></div>
 
                 <div class="login-box">
-                    <form action="/auth" method="post">
+                    <form action="/addArea" method="post">
                        <input type="text" id="name" name = "name" placeholder="Name">
                        <input type="text" id="xcoord" name = "xcoord" placeholder="X Coordinate">
                        <input type="text" id="ycoord" name = "ycoord" placeholder="Y Coordinate">
@@ -47,8 +47,8 @@
 
             <article>
                 <h2>Remove Out of Bounds Area:</h2>
-                <div>
-                    <ul id="list"></ul>
+                <div class="login-box">
+                <div id="list"></div>
                 </div>
                 <!-- <form action="/removeArea" method="post">
                     <label for="name">Number:</label><br>
@@ -65,13 +65,21 @@
 
     <script>
         var redZones = JSON.parse(`<%- (JSON.stringify(holder.redZones)) %>`);
-        output = '<div class = adminbox>'
-            var extension = '<form action="/removeArea" method="post">' + '<button type="submit" value="' + 0 + '" name="deletelocal" id ="deletelocal">' + redZones[0].city + '</button>' + '</form>';
+        // output = '<div class = adminbox>'
+        //     var extension = '<form action="/removeArea" method="post">' + '<button type="submit" value="' + 0 + '" name="deletelocal" id ="deletelocal">' + redZones[0].city + '</button>' + '</form>';
+        // for(var i= 1; i<= (redZones.length -1) ;i++){
+        //         extension = extension + '<form action="/removeArea" method="post">' + '<button type="submit" value="' + i + '" name="deletelocal" id ="deletelocal">' + redZones[i].city + '</button>' + '</form>'; 
+                  
+
+                output = '<form action= "/removeArea" method="post">' + '<select name="deletelocal" id="deletelocal">'
+            var extension = '<option value=' + 0 + '>' + redZones[0].city + '</option>';
         for(var i= 1; i<= (redZones.length -1) ;i++){
-                extension = extension + '<form action="/removeArea" method="post">' + '<button type="submit" value="' + i + '" name="deletelocal" id ="deletelocal">' + redZones[i].city + '</button>' + '</form>'; 
+                extension = extension + '<option value=' + i + '>' + redZones[i].city + '</option>'; 
                   
                   }
-                  output = output  + extension + '</div>';
+
+                  
+                  output = output  + extension + '<input type="submit" value="Submit">'+'</select>' + '</form>';
                   console.log("Admin has removed location from map");
                   document.getElementById('list').innerHTML=output;
         </script>
