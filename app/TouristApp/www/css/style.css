@@ -86,6 +86,7 @@ button
 
 button:hover
 {
+  background-color: rgb(252, 180, 48);
   box-shadow: 1px 1px 1px black;
 }
 
@@ -102,7 +103,7 @@ span
 
 main
 {
-  border: 1px solid grey;
+  box-shadow: 0px 0px 5px 0px #797979;
   border-radius: 10px;
   text-align: left;
   margin: 10px auto 20px auto;
@@ -188,6 +189,10 @@ h1, h2, h3, h4
 .navbar a
 {
   text-decoration: none;
+  -moz-transition: all .1s linear;
+  -o-transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
 }
 
 .navbar a:hover
