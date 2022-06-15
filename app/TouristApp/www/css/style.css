@@ -40,6 +40,13 @@ h1
 a
 {
   color: rgba(255, 155, 0);
+  transition: all .5s linear;
+}
+
+a:hover
+{
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #c5c5c5;
 }
 
 form
@@ -87,9 +94,6 @@ button
   border: none;
   color: white;
   background-color: rgba(255, 155, 0);
-  -moz-transition: all .1s linear;
-  -o-transition: all .1s linear;
-  -webkit-transition: all .1s linear;
   transition: all .1s linear;
 }
 
@@ -101,7 +105,7 @@ button:hover
 
 .danger
 {
-  border-color: red;
+  background-color: red;
   border-width: 3px;
 }
 
@@ -220,15 +224,7 @@ h1, h2, h3, h4
 .navbar a
 {
   text-decoration: none;
-  -moz-transition: all .1s linear;
-  -o-transition: all .1s linear;
-  -webkit-transition: all .1s linear;
   transition: all .1s linear;
-}
-
-.navbar-links a:hover
-{
-  text-decoration: underline;
 }
 
 .toggle-button {
