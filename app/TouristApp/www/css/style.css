@@ -162,7 +162,6 @@ h1, h2, h3, h4
 .brand-title {
   font-size: 1.5rem;
   margin: .5rem;
-  text-decoration: none;
 }
 
 .navbar-links {
@@ -186,6 +185,15 @@ h1, h2, h3, h4
   padding: 1rem;
 }
 
+.navbar a
+{
+  text-decoration: none;
+}
+
+.navbar a:hover
+{
+  text-decoration: underline;
+}
 
 .toggle-button {
   position: absolute;
