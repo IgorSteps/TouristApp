@@ -155,7 +155,7 @@ app.post('/removeArea', function(request, response) {
     // } else {
     //   response.redirect('landing');
     // } 
-    });
+  });
 	
 	app.get('/news', function(request, response) {  
 		response.render('news');

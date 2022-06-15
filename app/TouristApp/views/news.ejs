@@ -3,36 +3,40 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Jail - News</title>
-      <link rel="stylesheet" type="text/css" href="/css/style.css">
+      <title>JAIB - News</title>
+      <script src = "js/index.js"  defer></script>
+      <link rel="stylesheet" type="text/css" href="./css/style.css">
       <link rel="icon" type="image/x-icon" href="/favicon.ico">
    </head>
 
    <body>
-      <header>
-         <nav>
-            <ul>
-               <li><a href="./about">Home<img src="/img/home icon.png"></a></li>
-               <li><a href="./">Maps</a></li>
-               <li><a href="./news">News</a></li>
-               <li><a href="./emergency">Emergency Call</a></li>
-            </ul>
-         </nav>
-      </header>
+      <nav class="navbar">
+         <div class="brand-title"><a href="/about">TouristApp</a></div>
+         <a href="#" class="toggle-button">
+           <span class="bar"></span>
+           <span class="bar"></span>
+           <span class="bar"></span>
+         </a>
+         <div class="navbar-links ">
+           <ul>
+             <li><a href="/">Map</a></li>
+             <li><a href="/news">News</a></li>
+             <li><a href="/emergency">Emergency</a></li>
+           </ul>
+         </div>
+       </nav>
       
       <main>
          <div>
-            <h2>No News Today</h2>
-               <p class="center">
-                  You currently have nothing. No news. Nothing. This is our existence now. An endless plane. Filled with Australians. This is what we call JAIL.
-               </p>
-               <button class="center">This is a button. It will not save you from your fait</button>
-	            <a class="twitter-timeline" href="https://twitter.com/ausgov">Tweets by UKCovid19Stats</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+            <h2>Twitter Feed:</h2>
+               <div style="margin: 2px 0;">
+	            <a class="twitter-timeline" href="https://twitter.com/ausgov">Tweets by UKCovid19Stats</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
          </div>
       </main>
 
       <footer>
-         Written and produced by JAIL
+         Written and produced by JAIB
       </footer>
 
    </body>

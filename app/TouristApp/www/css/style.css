@@ -1,3 +1,6 @@
+
+
+
 #map {
   height: 500px;
   width: 100%;
@@ -34,93 +37,32 @@ h1 {
   text-align: center;
 }
 
-header
-{
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid grey;
-  border-radius: 10px;
-  box-shadow: 1px 1px 1px black;
-	position: sticky;
-	top: 0;
-	backdrop-filter: blur(3px);
-	-webkit-backdrop-filter: blur(3px);
-}
 
 a
 {
   color: rgba(255, 155, 0);
 }
 
-a:hover
-{
-  color: #ffb861;
-  cursor: pointer;
-  text-decoration: underline;
-}
 
-/*nav*/
-nav ul
-{
-  display: flex;
-  padding-left: 50px;
-  list-style: none;
-}
 
-nav ul li
-{
-  margin-right: 10%;
-}
-
-nav ul li:first-child
-{
-  margin-left: 10%;
-  margin-right: auto;
-}
-
-nav ul li a
-{
-  display: inline-block;
-  outline: none;
-  color: #333333;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 14px;
-  letter-spacing: 1.24px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-nav a
-{
-  text-decoration: none;
-  -moz-transition: all .1s linear;
-  -o-transition: all .1s linear;
-  -webkit-transition: all .1s linear;
-  transition: all .1s linear;
-}
-
-nav a img
-{
-  height: 15px;
-  visibility: hidden;
-}
 
 form
 {
   display: block;
+  margin: 10px;
+  padding: 10px;
 }
 
 input
 {
   border: solid 2px #363636;;
   border-radius: 5px;
+  margin: 5px auto;
 }
 
 input:hover
 {
-  border-color: #D57B0F;
+  border-color: rgba(255, 155, 0);
 }
 
 input:focus
@@ -151,6 +93,11 @@ button:hover
 {
   border-color: red;
   border-width: 3px;
+}
+
+span
+{
+  margin: 0px 5px;
 }
 
 main
@@ -193,88 +140,103 @@ h1, h2, h3, h4
 	max-width: fit-content;
 }
 
+/* Navigation */
 
-/** Mobile Devices **/
-@media only screen and (max-width:768px)
-{
-  #key
-  {
-    display: inline;
-    font-size: medium;
+.navbar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 155, 0);
+  border-radius: 10px;
+  border: 2px solid;
+  padding: 10px 40px 10px 40px;
+  box-shadow: 1px 1px 1px black;
+	position: sticky;
+	top: 0;
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  margin: .5rem;
+  text-decoration: none;
+}
+
+.navbar-links {
+  height: 100%;
+}
+
+.navbar-links ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links li a {
+  display: block;
+  text-decoration: none;
+  color: rgba(255, 155, 0);
+  padding: 1rem;
+}
+
+
+.toggle-button {
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  padding: 10px 20px 10px 20px;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: rgba(255, 155, 0);
+  border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
   }
 
-  #key div
-  {
-    display: block;
+  .toggle-button {
+      display: flex;
   }
 
-  #circle
-  {
-    width: 20px;
-    height: 20px;
+  .navbar-links {
+      display: none ;
+      width: 100%;
   }
 
-  #mapZone
-  {
-    display: block;
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
   }
 
-  header
-  {
-    border: none;
-    border-radius: 0;
-    border-bottom: 2px black solid;
-    box-shadow: none;
+  .navbar-links ul li {
+      text-align: center;
   }
 
-  main
-  {
-    width: 98%;
-    padding: 3px;
-    border: none;
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
   }
 
-  nav
-  {
-    height: fit-content;
-  }
-
-  nav li a
-  {
-    color: transparent;
-  }
-
-  nav a img
-  {
-    visibility: visible;
-  }
-
-  nav ul
-  {
-    padding: 0;
-    display: flex;
-    margin: auto;
-    width: 100%;
-  }
-
-  nav ul li
-  {
-    padding: 0px 8px 0px 8px;
-    display: inline-block;
-    float: none;
-    background-color: rgba(0, 0, 0, 0.03);
-    box-shadow: 1px 1px 1px black;
-    margin: 0px 3px 3px 0;
-  }
-
-  nav ul li:first-child
-  {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  nav ul li a
-  {
-    font-size: 3vw;
+  .navbar-links.active {
+      display: flex;
   }
 }
+/* End Navigation */
