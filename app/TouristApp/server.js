@@ -105,8 +105,8 @@ app.post('/addArea', function(request, response) {
 
 app.post('/removeArea', function(request, response) {
 	console.log(request.body);
-	let area = request.body.num;
-	jsonFile.redZones.splice((area -1),1);
+	let area = request.body.deletelocal;
+	jsonFile.redZones.splice((area),1);
 	fs.writeFileSync("./JAILbird.json", JSON.stringify(jsonFile));
 	response.redirect('/admin');
 });
@@ -150,11 +150,11 @@ app.post('/removeArea', function(request, response) {
   });
 
   app.get('/admin', function(request, response) { 
-    if (request.session.admin) {
+    // if (request.session.admin) {
       response.render('adminHub', {holder: jsonFile });
-    } else {
-      response.redirect('landing');
-    } 
+    // } else {
+    //   response.redirect('landing');
+    // } 
     });
 	
 	app.get('/news', function(request, response) {  
