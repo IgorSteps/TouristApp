@@ -55,7 +55,7 @@ form
 
 input
 {
-  border: solid 2px #363636;;
+  border: solid 1px #363636;;
   border-radius: 5px;
   margin: 5px auto;
 }
@@ -135,6 +135,12 @@ footer
   position: fixed;
   width: 100%;
   background: rgba(255, 255, 255, 0.88);
+}
+
+footer a
+{
+  margin: 0px 5px;
+  color: #6c6b6b;
 }
 
 h1, h2, h3, h4
