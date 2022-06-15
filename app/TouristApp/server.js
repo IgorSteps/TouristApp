@@ -140,12 +140,12 @@ app.post('/removeArea', function(request, response) {
   });
 
   app.get('/admin', function(request, response) { 
-    if (request.session.admin) {
+    //if (request.session.admin) {
       response.render('adminHub', {holder: jsonFile });
-    } else {
-		console.log("Non-Admin cannot access admin page");
-      response.redirect('landing');
-    } 
+    //} else {
+	//	console.log("Non-Admin cannot access admin page");
+    //  response.redirect('landing');
+   // } 
   });
 	
 	app.get('/news', function(request, response) {  
