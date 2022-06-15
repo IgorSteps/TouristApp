@@ -67,7 +67,8 @@ input:hover
 
 input:focus
 {
-  box-shadow: 1px 1px 1px black;
+  box-shadow: 0px 0px 5px 0px #797979;
+
 }
 
 button
@@ -87,7 +88,8 @@ button
 button:hover
 {
   background-color: rgb(252, 180, 48);
-  box-shadow: 1px 1px 1px black;
+  box-shadow: 0px 0px 5px 0px #797979;
+
 }
 
 .danger
@@ -337,6 +339,12 @@ input[type="button"] {
   background-color: rgb(255, 155, 0);;
   color: white;
   font-size: 18px;
+  
+}
+
+input[type="button"]:hover{
+  box-shadow: 0px 0px 5px 0px #797979;
+  cursor: pointer;
 }
 
 
