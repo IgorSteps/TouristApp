@@ -53,6 +53,18 @@ form
   padding: 10px;
 }
 
+ol li form
+{
+  margin: 0;
+  padding: 3px;
+}
+
+ol li form button
+{
+  background-color: red;
+  width: 10vw;
+}
+
 input
 {
   border: solid 1px #363636;;
@@ -87,7 +99,6 @@ button
 
 button:hover
 {
-  background-color: rgb(252, 180, 48);
   box-shadow: 0px 0px 5px 0px #797979;
 
 }
