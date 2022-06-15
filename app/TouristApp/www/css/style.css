@@ -110,6 +110,15 @@ main
   width: 60%;
 }
 
+.main-login{
+  border: 1px solid grey;
+  border-radius: 10px;
+  text-align: left;
+  margin: 100px auto 20px auto;
+  padding: 60px 10px 60px 10px;
+  width: 60%;
+}
+
 html {
   font-family: sans-serif;
   color: #363636;
@@ -135,9 +144,11 @@ h1, h2, h3, h4
 
 .center
 {
+  font-weight: bold;
 	display: flex;
 	margin: auto;
 	max-width: fit-content;
+  padding: 20px;
 }
 
 /* Navigation */
