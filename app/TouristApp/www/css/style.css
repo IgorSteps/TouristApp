@@ -248,27 +248,10 @@ h1, h2, h3, h4
 
 @media (max-width: 800px)
 {
-
-  #key
+  main
   {
-    display: inline;
-    font-size: medium;
-  }
-
-  #key div
-  {
-    display: block;
-  }
-
-  #circle
-  {
-    width: 20px;
-    height: 20px;
-  }
-
-  #mapZone
-  {
-    display: block;
+    width: 100%;
+    box-shadow: none;
   }
 
   .navbar {
@@ -295,7 +278,7 @@ h1, h2, h3, h4
   }
 
   .navbar-links ul li a {
-      padding: .5rem 1rem;
+      padding: 1.5rem 1rem;
   }
 
   .navbar-links.active {
