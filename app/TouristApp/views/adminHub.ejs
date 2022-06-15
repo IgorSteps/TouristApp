@@ -71,8 +71,8 @@
         //         extension = extension + '<form action="/removeArea" method="post">' + '<button type="submit" value="' + i + '" name="deletelocal" id ="deletelocal">' + redZones[i].city + '</button>' + '</form>'; 
                   
 
-                output = '<form action= "/removeArea" method="post">' + '<select name="deletelocal" id="deletelocal">'
-            var extension = '<option value=' + 0 + '>' + redZones[0].city + '</option>';
+        output = '<form action= "/removeArea" method="post">' + '<select name="deletelocal" id="deletelocal">'
+        var extension = '<option value=' + 0 + '>' + redZones[0].city + '</option>';
         for(var i= 1; i<= (redZones.length -1) ;i++){
                 extension = extension + '<option value=' + i + '>' + redZones[i].city + '</option>'; 
                   
