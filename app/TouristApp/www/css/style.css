@@ -62,7 +62,7 @@ input
 
 input:hover
 {
-  border-color: #D57B0F;
+  border-color: rgba(255, 155, 0);
 }
 
 input:focus
@@ -147,18 +147,23 @@ h1, h2, h3, h4
   position: relative;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
-  color: #D57B0F;
-  
-  border-radius: 25px;
-  border-color: #D57B0F;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 155, 0);
+  border-radius: 10px;
   border: 2px solid;
   padding: 10px 40px 10px 40px;
+  box-shadow: 1px 1px 1px black;
+	position: sticky;
+	top: 0;
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
 }
 
 .brand-title {
   font-size: 1.5rem;
   margin: .5rem;
+  text-decoration: none;
 }
 
 .navbar-links {
@@ -178,7 +183,7 @@ h1, h2, h3, h4
 .navbar-links li a {
   display: block;
   text-decoration: none;
-  color: #D57B0F;
+  color: rgba(255, 155, 0);
   padding: 1rem;
 }
 
@@ -198,7 +203,7 @@ h1, h2, h3, h4
 .toggle-button .bar {
   height: 3px;
   width: 100%;
-  background-color: #D57B0F;
+  background-color: rgba(255, 155, 0);
   border-radius: 10px;
 }
 
