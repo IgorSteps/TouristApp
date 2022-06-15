@@ -81,7 +81,8 @@ app.get('/redZones', function (req, res) {
 				response.redirect('/about');
         }
 			} else {
-				response.send('Incorrect Email and/or Password!');
+				response.render('login', {wrongInfo: true});
+				
 			}			
 			response.end();
 		});
@@ -112,7 +113,7 @@ app.post('/removeArea', function(request, response) {
 });
 
   app.get('/login', function(request, response) {  
-      response.render('login'); 
+      response.render('login', {wrongInfo: false}); 
  });
 
  app.get('/about', function(request, response) { 
