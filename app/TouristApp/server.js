@@ -76,11 +76,14 @@ app.get('/redZones', function (req, res) {
 				// Redirect to home page
 
         if (request.session.admin) {
+			console.log("Admin has logged in")
           response.redirect('/admin');
         } else {
+			
 				response.redirect('/about');
         }
 			} else {
+				console.log("User has entered incorrect Data")
 				response.render('login', {wrongInfo: true});
 				
 			}			
@@ -99,8 +102,10 @@ app.post('/addArea', function(request, response) {
 	let ycoord = request.body.ycoord;
 	let pop = request.body.population;
 
+	
 	jsonFile.redZones.push({city: name, center: { lat: parseFloat(xcoord), lng: parseFloat(ycoord), }, population: parseFloat(pop)});
 	fs.writeFileSync("./JAILbird.json", JSON.stringify(jsonFile));
+	console.log(name + " has been added to JSON file")
 	response.redirect('/admin');
 });
 
@@ -109,6 +114,7 @@ app.post('/removeArea', function(request, response) {
 	let area = request.body.deletelocal;
 	jsonFile.redZones.splice((area),1);
 	fs.writeFileSync("./JAILbird.json", JSON.stringify(jsonFile));
+	console.log("Area has been removed from JSON file")
 	response.redirect('/admin');
 });
 
@@ -141,12 +147,12 @@ app.post('/removeArea', function(request, response) {
   });
 
   app.get('/admin', function(request, response) { 
-    //if (request.session.admin) {
+    if (request.session.admin) {
       response.render('adminHub', {holder: jsonFile });
-    //} else {
-	//	console.log("Non-Admin cannot access admin page");
-    //  response.redirect('landing');
-   // } 
+    } else {
+	console.log("Non-Admin cannot access admin page");
+     response.redirect('landing');
+   } 
   });
 	
 	app.get('/news', function(request, response) {  
